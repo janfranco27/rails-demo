@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<%= link_to "Add skills to this user", new_user_skills_path(@user.id) %>
+<h2>User skills</h2>
+
+<% if @user.user_skills.count > 0 %>
+  <table>
+    <tr>
+      <td>
+        Name
+      </td>
+      <td>
+        Status
+      </td>
+    </tr>
+    <% @user.user_skills.each do |user_skill| %>
+      <tr>
+        <td>
+          <%= user_skill.skill.name %>
+        </td>
+        <td>
+          <%= user_skill.status %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h4>No skills for this user yet</h4>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

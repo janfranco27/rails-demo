@@ -1,0 +1,33 @@
+<%= form_with(model: skill) do |form| %>
+  <% if skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+      <ul>
+        <% skill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.radio_button :category, "General" %> General
+    <%= form.radio_button :category, "Engineering" %> Engineering
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

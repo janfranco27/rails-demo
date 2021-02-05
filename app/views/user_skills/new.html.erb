@@ -1,0 +1,7 @@
+<h4>Add skills for user</h4>
+
+<%#= form_with(model: @user_skill) do |form| %>
+  <% skills = @skills.map { |s| [s.name, s.id] } %>
+  <%= options_for_select(skills) %>
+  <%#= form.select %>
+<%# end %>
